@@ -7,7 +7,10 @@ result=[]
 for item in data:
     if sys.argv[1].lower() not in item["title"].lower(): 
         continue
-    item["arg"] = f"https://leetcode.cn/problems/{item['arg']}/description/"
+    if sys.argv[2].lower() == "":
+        item["arg"] = f"https://leetcode.cn/problems/{item['arg']}/description/"
+    else:
+        item["arg"] = f"https://www.google.com.hk/search?&q=site:programmercarl.com+{item['title']}"
     item["icon"] = {}
     item["icon"]["path"] =  "icon.png"
     result.append(item)

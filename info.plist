@@ -4,10 +4,21 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.hopbourn.leetcode-search</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>150D093F-8D15-4EDB-A55E-B4862A5D7E40</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>89066D90-11BF-40C9-BD1C-A7585FAAA4C2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>3B4CA1A5-E71B-4073-9282-BFA5E25D49D6</key>
 		<array>
 			<dict>
@@ -60,7 +71,7 @@
 				<key>runningsubtext</key>
 				<string>查询中，请等待......</string>
 				<key>script</key>
-				<string>python3 leetcode.py "$1"</string>
+				<string>python3 leetcode.py "$1" ""</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -102,11 +113,67 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>sxl</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>查询中，请等待......</string>
+				<key>script</key>
+				<string>python3 leetcode.py "$1" "sxl"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>搜索 Leetcode 题目</string>
+				<key>type</key>
+				<integer>11</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>150D093F-8D15-4EDB-A55E-B4862A5D7E40</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>150D093F-8D15-4EDB-A55E-B4862A5D7E40</key>
+		<dict>
+			<key>xpos</key>
+			<real>275</real>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
 		<key>3B4CA1A5-E71B-4073-9282-BFA5E25D49D6</key>
 		<dict>
 			<key>xpos</key>
@@ -117,9 +184,9 @@
 		<key>89066D90-11BF-40C9-BD1C-A7585FAAA4C2</key>
 		<dict>
 			<key>xpos</key>
-			<real>435</real>
+			<real>495</real>
 			<key>ypos</key>
-			<real>135</real>
+			<real>200</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
