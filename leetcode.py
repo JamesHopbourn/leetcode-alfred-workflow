@@ -1,11 +1,19 @@
+import re
 import sys
 import json
 
+def camel_to_snake(camel_case_string):
+    snake_case_string = re.sub(r'([A-Z])', r'-\1', camel_case_string)
+    return snake_case_string.lstrip('-').lower()
+
 data = open('result.json').read()
 data = json.loads(data)
-result=[]
+result = []
 for item in data:
-    if sys.argv[1].lower() not in item["title"].lower(): 
+    # ValidAnagram
+    if sys.argv[1].isalpha() and camel_to_snake(sys.argv[1]) == item["arg"]:
+        pass
+    elif sys.argv[1].lower() not in item["title"].lower():
         continue
     if sys.argv[2].lower() == "":
         item["arg"] = f"https://leetcode.cn/problems/{item['arg']}/description/"
