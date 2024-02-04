@@ -11,7 +11,6 @@ data = open('result.json').read()
 data = json.loads(data)
 result = []
 for item in data:
-    # ValidAnagram
     if sys.argv[1].isalpha() and camel_to_snake(sys.argv[1]) in item["arg"]:
         pass
     elif sys.argv[1].lower() not in item["title"].lower():
@@ -19,7 +18,10 @@ for item in data:
     if os.environ['alfred_workflow_keyword'].lower() == "lc":
         item["arg"] = f"https://leetcode.cn/problems/{item['arg']}/description/"
     else:
-        item["arg"] = f"https://www.google.com.hk/search?&q=site:programmercarl.com+{item['title']}"
+        parts = item['title'].split(' ')
+        text = ''.join(parts[1:]).replace(' ', '')
+        formatted_title = '{:0>4}.{}.html'.format(parts[0], text)
+        item["arg"] = f"https://programmercarl.com/{formatted_title}"
     item["icon"] = {}
     item["icon"]["path"] =  "icon.png"
     result.append(item)
