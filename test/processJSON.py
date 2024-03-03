@@ -10,11 +10,14 @@ for item in data:
     'MEDIUM': '中等',
     'HARD': '较难'
   }
-  result.append({
+  data = {
     "title": f"{item['frontendQuestionId']} {str(item['titleCn'])}",
     "subtitle": f"{difficultyMap[item['difficulty']]} {item['title']}",
     "arg": item['titleSlug']
-    })
+  }
+  if item['paidOnly']:
+    data['subtitle'] = '💰 ' + data['subtitle']
+  result.append(data)
 
 text = json.dumps(result,ensure_ascii=False)
 print(text)
