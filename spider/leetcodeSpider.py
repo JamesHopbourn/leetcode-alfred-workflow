@@ -6,12 +6,11 @@ url = "https://leetcode.cn/graphql/"
 all = []
 for i in range(31):
   payload = json.dumps({
-    "query": "query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\n problemsetQuestionList(\n categorySlug: $categorySlug\n limit: $limit\n skip: $skip\n filters: $filters\n ) {\n hasMore\n total\n questions {\n acRate\n difficulty\n freqBar\n frontendQuestionId\n isFavor\n paidOnly\n solutionNum\n status\n title\n titleCn\n titleSlug\n topicTags {\n name\n nameTranslated\n id\n slug\n }\n extra {\n hasVideoSolution\n topCompanyTags {\n imgUrl\n slug\n numSubscribed\n }\n }\n }\n }\n}\n ",
+    "query": "query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {problemsetQuestionList(categorySlug: $categorySlug limit: $limit skip: $skip filters: $filters ) {hasMore total questions {difficulty frontendQuestionId paidOnly title titleCn titleSlug }}} ",
     "variables": {
       "categorySlug": "algorithms",
       "skip": i*100,
-      "limit": 100,
-      "filters": {}
+      "limit": 100
     },
     "operationName": "problemsetQuestionList"
   })
