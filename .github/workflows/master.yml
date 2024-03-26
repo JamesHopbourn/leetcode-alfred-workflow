@@ -18,10 +18,10 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: "Leetcode-Search.alfredworkflow"
-          exclusions: '*.git* /*image/* LeetCodeSpider.py README.md'
+          exclusions: '*.git* LeetCodeSpider.py README.md'
       # 步骤3: 上传发布
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "Leetcode-Search.alfredworkflow"
+          artifacts: "LeetCode-Search.alfredworkflow"
           token: ${{ secrets.TOKEN }}
