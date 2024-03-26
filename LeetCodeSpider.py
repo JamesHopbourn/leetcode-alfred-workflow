@@ -35,6 +35,6 @@ for item in problemset:
   data['subtitleUS'] = '💰 ' + data['subtitleUS'] if item['paidOnly'] else data['subtitleUS']
   result.append(data)
 
-data = open('../result.json', 'w')
+data = open('result.json', 'w')
 data.write(json.dumps(result, indent=4, ensure_ascii=False))
 data.close()
