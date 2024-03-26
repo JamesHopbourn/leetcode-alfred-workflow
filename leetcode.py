@@ -12,12 +12,13 @@ for item in data:
     # lc 和 sxl 公共字段提取，遇到 lcm 关键词再覆盖
     item['icon'] = {'path': 'icon.png'}
     item['title'], item['subtitle'] = item['titleCN'], item['subtitleCN']
-    if os.environ['alfred_workflow_keyword'].lower() == 'lc':
+    keyword = os.environ['alfred_workflow_keyword'].lower()
+    if keyword == 'lc':
         item['arg'] = f"https://leetcode.cn/problems/{item['arg']}/description/"
-    elif os.environ['alfred_workflow_keyword'].lower() == 'lcm':
+    if keyword == 'lcm':
         item['arg'] = f"https://leetcode.com/problems/{item['arg']}/description/"
         item['title'], item['subtitle'] = item['titleUS'], item['subtitleUS']
-    elif os.environ['alfred_workflow_keyword'].lower() == 'sxl':
+    if keyword == 'sxl':
         parts = item['titleCN'].split(' ')
         text = ''.join(parts[1:]).replace(' ', '')
         formatted_title = '{:0>4}.{}.html'.format(parts[0], text)
