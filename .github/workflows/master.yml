@@ -18,7 +18,7 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: "Leetcode-Search.alfredworkflow"
-          exclusions: '*.git* /*test/* /*image/* README.md'
+          exclusions: '*.git* /*spider/* /*image/* README.md'
       # 步骤3: 上传发布
       - name: Upload Release
         uses: ncipollo/release-action@v1
