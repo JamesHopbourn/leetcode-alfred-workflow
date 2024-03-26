@@ -19,17 +19,13 @@ for i in range(31):
 
 result = []
 for item in problemset:
-  difficultyMap = {
-    'EASY': '简单',
-    'MEDIUM': '中等',
-    'HARD': '较难'
-  }
+  difficultyMap = {'EASY': '简单', 'MEDIUM': '中等', 'HARD': '较难'}
   data = {
+    "arg": item['titleSlug'],
     "titleUS": f"{item['frontendQuestionId']} {str(item['title'])}",
     "titleCN": f"{item['frontendQuestionId']} {str(item['titleCn'])}",
-    "subtitleUS": f"{item['difficulty']}",
-    "subtitleCN": f"{difficultyMap[item['difficulty']]} {item['title']}",
-    "arg": item['titleSlug']
+    "subtitleUS": f"{item['difficulty'].title()}",
+    "subtitleCN": f"{difficultyMap[item['difficulty']]} {item['title']}"
   }
   data['subtitleCN'] = '💰 ' + data['subtitleCN'] if item['paidOnly'] else data['subtitleCN']
   data['subtitleUS'] = '💰 ' + data['subtitleUS'] if item['paidOnly'] else data['subtitleUS']
