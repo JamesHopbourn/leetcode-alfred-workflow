@@ -18,14 +18,14 @@ for i in range(31):
   problemset.extend(json.loads(response.text)['data']['problemsetQuestionList']['questions'])
 
 result = []
+difficulty = {'EASY': '简单', 'MEDIUM': '中等', 'HARD': '较难'}
 for item in problemset:
-  difficultyMap = {'EASY': '简单', 'MEDIUM': '中等', 'HARD': '较难'}
   data = {
     "arg": item['titleSlug'],
     "titleUS": f"{item['frontendQuestionId']} {str(item['title'])}",
     "titleCN": f"{item['frontendQuestionId']} {str(item['titleCn'])}",
     "subtitleUS": f"{item['difficulty'].title()}",
-    "subtitleCN": f"{difficultyMap[item['difficulty']]} {item['title']}"
+    "subtitleCN": f"{difficulty[item['difficulty']]} {item['title']}"
   }
   data['subtitleCN'] = '💰 ' + data['subtitleCN'] if item['paidOnly'] else data['subtitleCN']
   data['subtitleUS'] = '💰 ' + data['subtitleUS'] if item['paidOnly'] else data['subtitleUS']
