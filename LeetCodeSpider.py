@@ -3,7 +3,7 @@ import requests
 
 url = "https://leetcode.cn/graphql/"
 
-all = []
+problemset = []
 for i in range(31):
   payload = json.dumps({
     "query": "query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {problemsetQuestionList(categorySlug: $categorySlug limit: $limit skip: $skip filters: $filters ) {hasMore total questions {difficulty frontendQuestionId paidOnly title titleCn titleSlug }}} ",
@@ -14,14 +14,11 @@ for i in range(31):
     },
     "operationName": "problemsetQuestionList"
   })
-  headers = {
-    'Content-Type': 'application/json',
-  }
-  response = requests.request("POST", url, headers=headers, data=payload)
-  all.extend(json.loads(response.text)['data']['problemsetQuestionList']['questions'])
+  response = requests.request("POST", url, headers={'Content-Type': 'application/json'}, data=payload)
+  problemset.extend(json.loads(response.text)['data']['problemsetQuestionList']['questions'])
 
 result = []
-for item in all:
+for item in problemset:
   difficultyMap = {
     'EASY': '简单',
     'MEDIUM': '中等',
