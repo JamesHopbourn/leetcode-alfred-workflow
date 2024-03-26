@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.hopbourn.leetcode-search</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>3B4CA1A5-E71B-4073-9282-BFA5E25D49D6</key>
@@ -48,7 +46,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>lc||sxl</string>
+				<string>lc||lcm||sxl</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
