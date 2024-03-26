@@ -17,7 +17,7 @@ jobs:
       - name: Create Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: "Leetcode-Search.alfredworkflow"
+          filename: "LeetCode-Search.alfredworkflow"
           exclusions: '*.git* LeetCodeSpider.py README.md'
       # 步骤3: 上传发布
       - name: Upload Release
