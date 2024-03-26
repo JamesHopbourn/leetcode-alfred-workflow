@@ -16,7 +16,7 @@ for item in data:
     keyword = os.environ['alfred_workflow_keyword'].lower()
     if keyword == 'lc':
         item['arg'] = f"https://leetcode.cn/problems/{item['arg']}/description/"
-    elif keyword  == 'lcm':
+    elif keyword == 'lcm':
         item['arg'] = f"https://leetcode.com/problems/{item['arg']}/description/"
         item['title'] = item['titleUS']
         item['subtitle'] = item['subtitleUS']
