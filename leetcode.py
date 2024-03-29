@@ -5,10 +5,18 @@ import json
 
 data = open('result.json').read()
 data = json.loads(data)
+
+text = ' '.join(sys.argv[1:])
+text = '.*' + '.*'.join(text.split()) + '.*'
+
 result = []
 for item in data:
-    if sys.argv[1] not in item['titleCN'] and sys.argv[1].lower() not in item['titleUS'].lower():
+    # 匹配中文或者英文标题
+    if not re.search(text.lower(), item['titleCN'] + item['titleUS'].lower()):
         continue
+    # lc 和 sxl 公共字段提取，遇到 lcm 关键词再覆盖
+    item['icon'] = {'path': 'icon.png'}
+    item['title'], item['subtitle'] = item['titleCN'], item['subtitleCN']
     # lc 和 sxl 公共字段提取，遇到 lcm 关键词再覆盖
     item['icon'] = {'path': 'icon.png'}
     item['title'], item['subtitle'] = item['titleCN'], item['subtitleCN']
